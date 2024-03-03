@@ -67,7 +67,7 @@ public class HealthBar : MonoBehaviour
         handleDeath?.Invoke();
     }
 
-    public void takeDamage(int damageTaken){
+    public void takeDamage(float damageTaken){
         if(!isDead)
         {
             health -= damageTaken;

@@ -16,8 +16,12 @@ public class interactable : MonoBehaviour
         
     }
 
-    public void interact()
+    public void interact(GameObject item)
     {
-
+        Debug.Log("item interacted");
+        switch(item.tag){
+            case "waterBucket": item.GetComponent<spillWater>().generatePuddle(); break;
+            default: break;
+        }
     }
 }

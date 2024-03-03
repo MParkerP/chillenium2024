@@ -146,7 +146,7 @@ public class moveScript : MonoBehaviour
 
     private void interactHandler()
     {
-        if (Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(interactKey) && !holding)
         {
             float shortest = Mathf.Infinity;
             foreach (Collider2D collider in pickUpArea)
@@ -159,7 +159,7 @@ public class moveScript : MonoBehaviour
                 }
 
             }
-            if (item != null&&item.GetComponent<interactable>()!=null) { item.GetComponent<interactable>().interact(); }
+            if (item != null&&item.GetComponent<interactable>()!=null) { item.GetComponent<interactable>().interact(item); }
         }
     }
 

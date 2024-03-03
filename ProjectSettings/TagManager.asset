@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Opening
   - Interactable
+  - waterBucket
+  - Battery
   layers:
   - Default
   - TransparentFX
