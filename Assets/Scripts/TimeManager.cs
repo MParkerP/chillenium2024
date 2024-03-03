@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 public class TimeManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI daysText;
     [SerializeField] private TextMeshProUGUI daylightText;
 
+    [SerializeField] private Light2D globalLight;
 
 
 
@@ -48,12 +50,14 @@ public class TimeManager : MonoBehaviour
                     if (intervals == 0)
                     {
                         daylightText.text = " DAYTIME";
+                        globalLight.intensity = 1;
                         newDay?.Invoke();
                     }
                     
                     if(intervals == 1)
                     {
                         daylightText.text = " NIGHTTIME";
+                        globalLight.intensity = 0.5f;
                         newNight?.Invoke();
                     }
                     intervals++;

@@ -22,7 +22,7 @@ public class sticky : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("hit");
-        if (!collision.gameObject.CompareTag("Player")&&collision.gameObject.GetComponent<sticky>()==null)
+        if (!collision.gameObject.CompareTag("Player")&&collision.gameObject.GetComponent<sticky>()==null && !collision.gameObject.CompareTag("Wall"))
         {
           
                 gameObject.AddComponent<RelativeJoint2D>();

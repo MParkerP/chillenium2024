@@ -23,12 +23,18 @@ public class moveScript : MonoBehaviour
     [SerializeField] string useKey;
     [SerializeField] public float facing;
     [SerializeField] public float radius;
+    private SpriteRenderer playerSp;
+
+    public Sprite playerForward;
+    public Sprite playerBackward;
+    public Sprite playerLeft;
     
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerTr = GetComponent<Transform>();
+        playerSp = GetComponent<SpriteRenderer>();
         speed = 10;
         interact = false;
         pickUp = false;
@@ -69,44 +75,50 @@ public class moveScript : MonoBehaviour
         switch (verticalInput, horizontalInput)
         {
             case (1, 0):
-                transform.rotation = Quaternion.Euler(0, 0, 270); //moving up
+                 //moving up
+                 playerSp.sprite = playerBackward;
                 facing = 1;
                 break;
 
             case (-1, 0):
-                transform.rotation = Quaternion.Euler(0, 0, 90); //moving down
+                //moving down
+                playerSp.sprite = playerForward;
                 facing = 3;
                 break;
 
             case (0, 1):
-                transform.rotation = Quaternion.Euler(0, 0, 180); //moving right
+                //moving right
+                playerSp.sprite = playerLeft;
+                playerSp.flipX = true;
                 facing = 2;
                 break;
 
             case (0, -1):
-                transform.rotation = Quaternion.Euler(0, 0, 0); //moving left
+                //moving left
+                playerSp.sprite = playerLeft;
+                playerSp.flipX = false;
                 facing = 0;
                 break;
 
 
 
             case (1, -1):
-                transform.rotation = Quaternion.Euler(0, 0, 315); //moving up-left
+                 //moving up-left
                 facing = 0.5f;
                 break;
 
             case (1, 1):
-                transform.rotation = Quaternion.Euler(0, 0, 225); //moving up-right
+                 //moving up-right
                 facing = 1.5f;
                 break;
 
             case (-1, -1):
-                transform.rotation = Quaternion.Euler(0, 0, 45); //moving down-left
+                 //moving down-left
                 facing = 3.5f;
                 break;
 
             case (-1, 1):
-                transform.rotation = Quaternion.Euler(0, 0, 135); //moving down-right
+                 //moving down-right
                 facing = 2.5f;
                 break;
         }
