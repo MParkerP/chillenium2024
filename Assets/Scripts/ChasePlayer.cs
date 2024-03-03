@@ -29,6 +29,8 @@ public class ChasePlayer : MonoBehaviour
 
         //raycasting
         enemyToPlayerRay = new Ray2D(transform.position, getDirectionToPlayer());
+        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, getDirectionToPlayer());
+        transform.rotation = rotation;
         Debug.DrawRay(enemyToPlayerRay.origin, enemyToPlayerRay.direction*20);
         Debug.DrawRay(transform.position, enemyRb.velocity.normalized *20);
         LayerMask playerLayer = LayerMask.GetMask("Player");
