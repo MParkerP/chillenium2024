@@ -34,7 +34,7 @@ public class pickUpable : MonoBehaviour
         if (pickedUp)
         {
             held();
-        }  
+        }
     }
     private void held()
     {
@@ -42,7 +42,7 @@ public class pickUpable : MonoBehaviour
         {
             case (1):
                 objectTr.position = new Vector2(playerTr.position.x, playerTr.position.y + 0.5f);
-               
+
                 break;
 
             case (3):
@@ -84,7 +84,7 @@ public class pickUpable : MonoBehaviour
     }
 
 
-    
+
     public void togglePickUp()
     {
         if (!pickedUp)
@@ -92,6 +92,7 @@ public class pickUpable : MonoBehaviour
             gameObject.layer = heldLayer;
             pickedUp = true;
             objectCo.enabled = false;
+            checkSticky();
         }
         else
         {
@@ -101,5 +102,30 @@ public class pickUpable : MonoBehaviour
         }
     }
 
-   
+    private void checkSticky()
+    {
+        if (gameObject.GetComponent<sticky>() != null)
+        {
+            RelativeJoint2D[] joints = GetComponents<RelativeJoint2D>();
+            foreach (RelativeJoint2D joint in joints)
+            {
+                Destroy(joint);
+            }
+        }
+        else
+        {
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+            foreach (GameObject item in allObjects)
+            {
+                if (item.GetComponent<sticky>() != null)
+                {
+                    item.GetComponent<sticky>().checkConnection(gameObject);
+                }
+
+            }
+        }
+        
+    }
+
+
 }
