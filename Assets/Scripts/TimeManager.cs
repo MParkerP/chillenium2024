@@ -67,4 +67,8 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public int getDayNum(){
+        return dayCount;
+    }
+
 }

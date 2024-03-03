@@ -79,6 +79,8 @@ public class HealthBar : MonoBehaviour
         Debug.Log("Damage taken");
         adjustHealthBarUI();
         printCurrentHealth();
+        StartCoroutine(flashRed());
+        
     }
 
     void printCurrentHealth(){
@@ -91,6 +93,13 @@ public class HealthBar : MonoBehaviour
             healthBar.fillAmount = health / maxHealth;
             //healthText.text = health + "/" + maxHealth;
         }
+    }
+
+    IEnumerator flashRed(){
+        SpriteRenderer objectSp = GetComponent<SpriteRenderer>();
+        objectSp.color = new Color(255,0,0);
+        yield return new WaitForSeconds(0.1f);
+        objectSp.color = new Color(255,255,255);
     }
 
 }
