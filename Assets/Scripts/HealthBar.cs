@@ -89,7 +89,7 @@ public class HealthBar : MonoBehaviour
     void adjustHealthBarUI(){
         if(displayHealthBar){   
             healthBar.fillAmount = health / maxHealth;
-            healthText.text = health + "/" + maxHealth;
+            //healthText.text = health + "/" + maxHealth;
         }
     }
 

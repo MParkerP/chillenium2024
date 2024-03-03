@@ -11,7 +11,7 @@ public class ContactDamage : MonoBehaviour
     //any tag included as a string in this array will be damaged
     [SerializeField] private string[] damageTags;
     [SerializeField] private int contactDamage;
-    [SerializeField] private int damageTicDelay;
+    [SerializeField] private int damageTicDelay = 1;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (damageTags.Contains<string>(collision.gameObject.tag))
