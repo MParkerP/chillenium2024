@@ -14,10 +14,13 @@ public class Explosive : MonoBehaviour
     {
         StartCoroutine(explodeWithDelay());
     }
+    public AudioClip explosion;
     IEnumerator explodeWithDelay(){
         yield return new WaitForSeconds(0.15f);
         objectsInRadius = Physics2D.OverlapCircleAll(transform.position, blastRadius, aoe);
         //Debug.Log(transform.position); 
+        SoundEffects Effects = GameObject.Find("SoundEffects").GetComponent<SoundEffects>();
+        if (Effects != null ) { Effects.PlaySoundEffect(explosion); }
         foreach (Collider2D obj in objectsInRadius){
            // Debug.Log(obj.ToString());
             if(obj.GetComponent<HealthBar>() && obj.gameObject != this.gameObject){

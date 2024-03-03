@@ -145,6 +145,11 @@ public class moveScript : MonoBehaviour
             { 
                 item.GetComponent<pickUpable>().togglePickUp();
                 holding = true;
+                AudioSource playerAudio = GetComponent<AudioSource>();
+                if (playerAudio!= null)
+                {
+                    playerAudio.Play();
+                }
             }
             
         }

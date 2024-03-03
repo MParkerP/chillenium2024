@@ -13,9 +13,12 @@ GameObject:
   - component: {fileID: -8235658712775884973}
   - component: {fileID: 5902987797616415919}
   - component: {fileID: -7897402375762296259}
+  - component: {fileID: 6912699517502166006}
+  - component: {fileID: 3374871817210789754}
+  - component: {fileID: 1784279004752744532}
   m_Layer: 0
   m_Name: Baracade
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,10 +96,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 100
   m_LinearDrag: 10
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -172,6 +175,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6912699517502166006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069043272757056932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6ef914425b10142b9bf0c33f293d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3374871817210789754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069043272757056932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0319937d231c742b3737754e77ce9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  maxHealth: 200
+  handleDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1784279004752744532}
+        m_TargetAssemblyTypeName: HelpfulFunctions, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1784279004752744532}
+        m_TargetAssemblyTypeName: HelpfulFunctions, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  healthBar: {fileID: 0}
+  healthText: {fileID: 0}
+  displayHealthBar: 0
+  isDead: 0
+--- !u!114 &1784279004752744532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069043272757056932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df25bd49d4fa1f64d9cb53f987cefe89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7425184469500898810
 GameObject:
   m_ObjectHideFlags: 0
