@@ -26,7 +26,7 @@ public class electrocute : MonoBehaviour
 
     IEnumerator zap(Collider2D obj){
         obj.GetComponent<HealthBar>().takeDamage(.3f);
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.5f);
     }
 
     IEnumerator flashYellow(){
@@ -34,10 +34,10 @@ public class electrocute : MonoBehaviour
         SpriteRenderer objectSp = GetComponent<SpriteRenderer>();
         objectSp.color = yellow;
         Debug.Log("Set Color to yellow");
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.05f);
         objectSp.color = blue; 
         Debug.Log("Set Color to Blue");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
       
         //Debug.Log("Flashing yellow");
 

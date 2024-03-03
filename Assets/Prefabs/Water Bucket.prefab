@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9048783820783427613}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Water Bucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1038363337100866724}
   - component: {fileID: 8473737655198764428}
   - component: {fileID: 3241026489586461058}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Circle
   m_TagString: waterBucket
   m_Icon: {fileID: 0}
@@ -192,9 +192,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.114574336, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.38542566
 --- !u!114 &8473737655198764428
 MonoBehaviour:
   m_ObjectHideFlags: 0
