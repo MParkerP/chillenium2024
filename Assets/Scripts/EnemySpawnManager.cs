@@ -7,8 +7,19 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject[] spawnPoints;
 
-    private int totalSpawnCount = 25;
+    public int totalSpawnCount = 25;
+    public int spawnCount = 0;
     private float spawnDelay;
+
+    private void Start()
+    {
+        spawnCount = totalSpawnCount;
+    }
+
+    public void resetSpawnCount()
+    {
+        spawnCount = totalSpawnCount;
+    }
 
     public void StartSpawningEnemies()
     {
@@ -42,12 +53,13 @@ public class EnemySpawnManager : MonoBehaviour
     IEnumerator SpawnEnemies()
     {
         spawnDelay = 50.0f / totalSpawnCount;
-        while (totalSpawnCount > 0)
+        while (spawnCount > 0)
         {
             GameObject currentSpawnPoint = spawnPoints[Random.Range(0, 2)];
             GameObject currentEnemy = Instantiate(enemyPrefab, currentSpawnPoint.transform.position, Quaternion.identity);
-            totalSpawnCount--;
+            spawnCount--;
             yield return new WaitForSeconds(spawnDelay);
         }
+        
     }
 }
